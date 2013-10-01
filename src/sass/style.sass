@@ -6,3 +6,159 @@
  * Author:          Jon Faustman
  * Author URI:      http://jon.faustman.org/
  */
+
+@import base
+
+html
+    +box-sizing(border-box)
+    +font($size: 16px, $height: 1, $family: unquote('Gerogia, serif'), $shorthand: true)
+    background-color: #226078
+    color: #ffd773
+    font-size: 100%
+    margin: 0 auto
+    max-width: em(767px)
+    min-width: em(320px)
+    text-rendering: optimizeLegibility
+    +respond-to(tablet)
+        max-width: em(768px)
+        min-width: em(768px)        
+    +respond-to(desktop)
+        max-width: em(960px)
+        min-width: em(769px)
+
+a
+    text-decoration: none
+
+em
+    font-style: italic
+
+p
+    line-height: 1.5
+    margin-bottom: 1rem
+    +respond-to(tablet)
+        margin: 0 auto 1rem
+        width: 75%
+
+.header
+    color: #ffd773
+    margin: 1rem 1rem 2em
+    +respond-to(desktop)
+        position: relative
+        margin-bottom: 4rem
+
+.header__logo
+    +text-shadow(2px 1px 0 #024C68)
+    color: #FFB600
+    display: block
+    font-family: Arial, sans-serif
+    font-size: 40px
+    font-weight: bold
+    letter-spacing: -2px
+    line-height: .8
+    margin: 0 auto 1rem
+    +respond-to(tablet)
+    +respond-to(desktop)
+        margin: 0
+        width: 200px
+
+.header__logo--line-one
+    +respond-to(desktop)
+        font-size: 60px
+
+.header__logo--line-two
+    font-style: italic
+    +respond-to(desktop)
+        font-size: 50px
+
+.header__logo--line-three
+    +respond-to(desktop)
+        font-size: 80px
+
+.header__logo--line-four
+    +respond-to(desktop)
+        line-height: .7
+
+.header__sub
+    +text-shadow(1px 1px 0 #3aa6d0)
+    font-size: 30px
+    letter-spacing: -2px
+    margin-bottom: 1rem
+    +respond-to(desktop)
+        bottom: 2rem
+        font-size: 40px
+        left: em(200px, $base: 40px)
+        margin-bottom: 0
+        position: absolute
+
+.header__desc
+    > a
+        color: inherit
+        text-decoration: underline
+    +respond-to(desktop)
+        bottom: 0
+        left: em(200px)
+        position: absolute
+
+.photo
+    display: block
+    margin: 0 1rem 3rem
+
+.photo__image
+    +box-shadow(0 4px 4px rgba(0,0,0,.5), 1px 1px 1px rgba(0,0,0,.25))
+    background-color: #eee
+    border: 1px solid rgba(0,0,0,.25)
+    display: block
+    padding: 1.5rem
+    img
+        border: 1px inset rgba(0,0,0,.25)
+        max-width: 100%
+
+%hN
+    color: #ff8873
+    font-weight: bold
+    margin: 0 auto 1rem
+    text-shadow: 1px 1px 0 #a61d00
+    +respond-to(tablet)
+        width: 75%
+    +respond-to(desktop)
+        width: 75%
+
+h1,
+.alpha
+    @extend %hN
+    font-size: 32px
+
+h2,
+.beta
+    @extend %hN
+    font-size: 24px
+
+.iydttfy
+    display: block
+    height: 50px
+    margin: 3rem auto
+    width: 320px
+    +respond-to(tablet)
+        height: 90px
+        width: 728px
+    @media only screen and (min-width: 800px)
+        height: 90px
+        width: 728px
+
+.wp-pagenavi
+    +box-shadow(1px 1px 1px rgba(0,0,0,.25))
+    background-color: #024c68
+    font-weight: bold
+    margin: 1rem
+    > .pages,
+    > .current,
+    > a
+        border-right: 1px solid #226078
+        display: inline-block
+        padding: .5rem 1em
+    > a
+        color: inherit
+
+@media print
+    *
+        display: none

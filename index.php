@@ -16,20 +16,31 @@
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
 <?php if ( have_posts() ): ?>
-<h2>Latest Posts</h2>	
-<ol>
-<?php while ( have_posts() ) : the_post(); ?>
-	<li>
-		<article>
-			<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-			<?php the_content(); ?>
-		</article>
-	</li>
-<?php endwhile; ?>
-</ol>
+
+    <?php while ( have_posts() ) : the_post(); ?>
+    <a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark" class="photo">
+        <figure>
+            <figcaption class="photo__cut">
+                <h1>If you <em><?php the_title(); ?></em>, then fuck you.</h1>
+            </figcaption>
+        	<?php the_content(); ?>
+        </figure>
+    </a>  
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- iydttfy -->
+    <ins class="adsbygoogle iydttfy" data-ad-client="ca-pub-5996049043771362" data-ad-slot="5290399535"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+ 
+    <?php endwhile; ?>
+    
+    <?php wp_pagenavi(); ?>
+
 <?php else: ?>
-<h2>No posts to display</h2>
+    
+    <h1>If you <em>have no posts to display</em>, then fuck you.</h1>
+
 <?php endif; ?>
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>
